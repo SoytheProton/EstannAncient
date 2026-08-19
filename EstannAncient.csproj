@@ -106,6 +106,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="EstannAncientCode\Ancients\" />
         <Folder Include="EstannAncient\images\card_portraits\big\"/>
         <Folder Include="EstannAncient\images\powers\big\"/>
         <Folder Include="EstannAncient\images\relics\big\"/>
