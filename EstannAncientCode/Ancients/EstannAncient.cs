@@ -3,6 +3,7 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace EstannAncient.EstannAncientCode.Ancients;
 
@@ -13,26 +14,26 @@ public class EstannAncient : CustomAncientModel
 
         new(
             MakePool(
-                AncientOption<FlashBeacon>(),
-                AncientOption<WildlifeDocuments>(),
-                AncientOption<MedicalKit>()
+                AncientOption<Anchor>(),
+                AncientOption<Anchor>(),
+                AncientOption<Anchor>()
             ),
             MakePool(
-                AncientOption<SebbyCharm>(3),
-                AncientOption<SebastiansScanner>(3),
-                AncientOption<SalineInfuser>(3),
-                AncientOption<ShippingRequest>(2)
+                AncientOption<Anchor>(3),
+                AncientOption<Anchor>(3),
+                AncientOption<Anchor>(3),
+                AncientOption<Anchor>(2)
             ),
             MakePool(
-                AncientOption<ShotgunShells>(3),
-                AncientOption<GlowingVial>(2),
-                AncientOption<ExperimentalSerum>(5, serum =>
+                AncientOption<Anchor>(3),
+                AncientOption<Anchor>(2)/*,
+                 AncientOption<Anchor>(5, serum =>
                 {
                     if (Owner != null)
                         serum.SetupForPlayer(Owner);
                     return serum;
-                })
-            ));
+                })*/
+                ));
 
     public override Color ButtonColor => new(0.05f, 0.05f, 0.15f, 0.8f);
 
