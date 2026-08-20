@@ -2,6 +2,7 @@
 using BaseLib.Extensions;
 using EstannAncient.EstannAncientCode.Extensions;
 using Godot;
+using MegaCrit.Sts2.Core.Entities.Players;
 
 namespace EstannAncient.EstannAncientCode.Relics;
 
@@ -33,5 +34,15 @@ public abstract class EstannAncientRelic : CustomRelicModel
             var path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigRelicImagePath();
             return ResourceLoader.Exists(path) ? path : "relic.png".BigRelicImagePath();
         }
+    }
+    
+    protected virtual bool RelicAllowedToSpawn(Player owner)
+    {
+        return true;
+    }
+
+    protected EstannAncientRelic()
+    {
+        this.AddCustomAncientSpawnCondition(model => ((EstannAncientRelic)ToMutable()).RelicAllowedToSpawn(model.Owner));
     }
 }

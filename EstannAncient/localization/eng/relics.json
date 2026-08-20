@@ -1,3 +1,15 @@
 {
-  
+  "ESTANNANCIENT-NAME_ONE.description": "Upon pickup, gain [blue]{PotionSlots}[/blue] potion slot. Whenever you enter a [gold]Rest Site[/gold], procure [blue]{Potions}[/blue] [gold]{PotionName}[/gold].",
+  "ESTANNANCIENT-NAME_ONE.eventDescription": "Gain [blue]{PotionSlots}[/blue] potion slot. Whenever you enter a [gold]Rest Site[/gold], procure [blue]{Potions}[/blue] [gold]{PotionName}[/gold].",
+  "ESTANNANCIENT-NAME_ONE.flavor": "",
+  "ESTANNANCIENT-NAME_ONE.title": "Name One",
+
+  "ESTANNANCIENT-NAME_FIVE.description": "At the start of each combat, draw [blue]{Cards}[/blue] additional {Cards:plural:card|cards} and Attacks deal double damage this turn.\nAt the start of your [blue]2nd[/blue] turn, gain [blue]{Power}[/blue] [gold]Weak[/gold] and [blue]{Power}[/blue] [gold]Frail[/gold].",
+  "ESTANNANCIENT-NAME_FIVE.flavor": "",
+  "ESTANNANCIENT-NAME_FIVE.title": "Name Five",
+
+  "ESTANNANCIENT-NAME_EIGHT.description": "Upon pickup, [gold]Enchant[/gold] an Attack or Skill that doesn't [gold]Exhaust[/gold] with [purple]{Enchantment}[/purple].",
+  "ESTANNANCIENT-NAME_EIGHT.eventDescription": "[gold]Enchant[/gold] an Attack or Skill that doesn't [gold]Exhaust[/gold] with [purple]{Enchantment}[/purple].",
+  "ESTANNANCIENT-NAME_EIGHT.flavor": "",
+  "ESTANNANCIENT-NAME_EIGHT.title": "Name Eight"
 }

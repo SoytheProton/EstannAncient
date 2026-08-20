@@ -1,12 +1,11 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using EstannAncient.EstannAncientCode.Relics;
 using Godot;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace EstannAncient.EstannAncientCode.Ancients;
-
 
 public class EstannAncient : CustomAncientModel
 {
@@ -14,20 +13,13 @@ public class EstannAncient : CustomAncientModel
 
         new(
             MakePool(
-                AncientOption<Anchor>(),
-                AncientOption<Anchor>(),
-                AncientOption<Anchor>()
+                AncientOption<NameOne>()
             ),
             MakePool(
-                AncientOption<Anchor>(3),
-                AncientOption<Anchor>(3),
-                AncientOption<Anchor>(3),
-                AncientOption<Anchor>(2)
+                AncientOption<NameEight>()
             ),
             MakePool(
-                AncientOption<Anchor>(3),
-                AncientOption<Anchor>(2),
-                AncientOption<Anchor>(5)
+                AncientOption<NameFive>()
             ));
 
     public override Color ButtonColor => new(0.05f, 0.05f, 0.15f, 0.8f);
