@@ -7,6 +7,7 @@ namespace EstannAncient.EstannAncientCode.Enchantments;
 
 public class EightEnchantment : EstannAncientEnchantment
 {
+    public override bool HasExtraCardText => true;
     public override bool CanEnchant(CardModel card)
     {
         return base.CanEnchant(card) && card.Type is CardType.Attack or CardType.Skill && !card.GetKeywordsWithSources(KeywordSources.Local).Contains(CardKeyword.Exhaust);

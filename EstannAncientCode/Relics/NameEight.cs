@@ -44,6 +44,6 @@ public class NameEight : EstannAncientRelic
     
     protected override bool RelicAllowedToSpawn(Player owner)
     {
-        return PileType.Deck.GetPile(Owner).Cards.Any(ModelDb.Enchantment<EightEnchantment>().CanEnchant);
+        return PileType.Deck.GetPile(owner).Cards.Any(ModelDb.Enchantment<EightEnchantment>().CanEnchant);
     }
 }

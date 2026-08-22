@@ -1,11 +1,11 @@
 ﻿using BaseLib.Utils;
 using EstannAncient.EstannAncientCode.Potions;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 
@@ -20,7 +20,7 @@ public class NameOne : EstannAncientRelic
     public override bool HasUponPickupEffect => true;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new ("PotionSlots", 2M), new ("Potions", 2M), new StringVar("PotionName", ModelDb.Potion<FakeBufferPotion>().Title.GetFormattedText())];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPotion<FakeBufferPotion>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPotion<FakeBufferPotion>(), HoverTipFactory.FromPower<BufferPower>(), HoverTipFactory.FromPower<FrailPower>()];
 
     public override async Task AfterObtained()
     {
