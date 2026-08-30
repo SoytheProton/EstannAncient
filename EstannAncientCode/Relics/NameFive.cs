@@ -20,7 +20,7 @@ public class NameFive : EstannAncientRelic
         RelicRarity.Ancient;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new ("Power", 2M), new CardsVar(1)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPotion<FakeBufferPotion>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>(), HoverTipFactory.FromPower<FrailPower>()];
 
     public override decimal ModifyHandDraw(Player player, decimal count)
     {

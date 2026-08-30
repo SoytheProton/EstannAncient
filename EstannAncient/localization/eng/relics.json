@@ -4,10 +4,28 @@
   "ESTANNANCIENT-NAME_ONE.flavor": "",
   "ESTANNANCIENT-NAME_ONE.title": "Name One",
 
+  "ESTANNANCIENT-NAME_TWO.description": "Upon pickup, [gold]Enchant[/gold] up to [blue]{Cards}[/blue] Attacks or Skills with [purple]{EnchantmentName}[/purple]. The first time you [gold]Exhaust[/gold] all [purple]{EnchantmentName}[/purple] cards each combat, gain [blue]{Power}[/blue] [gold]Strength[/gold] and [blue]{Power}[/blue] [gold]Dexterity[/gold].",
+  "ESTANNANCIENT-NAME_TWO.eventDescription": "Upon pickup, [gold]Enchant[/gold] up to [blue]{Cards}[/blue] Attacks or Skills with [purple]{EnchantmentName}[/purple].\nThe first time you [gold]Exhaust[/gold] all [purple]{EnchantmentName}[/purple] cards each combat, gain [blue]{Power}[/blue] [gold]Strength[/gold] and [blue]{Power}[/blue] [gold]Dexterity[/gold].",
+  "ESTANNANCIENT-NAME_TWO.flavor": "",
+  "ESTANNANCIENT-NAME_TWO.title": "Name Two",
+  
+  "ESTANNANCIENT-NAME_FOUR.description": "",
+  "ESTANNANCIENT-NAME_FOUR.flavor": "",
+  "ESTANNANCIENT-NAME_FOUR.title": "Name Four",
+  
   "ESTANNANCIENT-NAME_FIVE.description": "At the start of each combat, draw [blue]{Cards}[/blue] additional {Cards:plural:card|cards} and Attacks deal double damage this turn. At the start of your [blue]2nd[/blue] turn, gain [blue]{Power}[/blue] [gold]Weak[/gold] and [blue]{Power}[/blue] [gold]Frail[/gold].",
+  "ESTANNANCIENT-NAME_FIVE.eventDescription": "At the start of each combat, draw [blue]{Cards}[/blue] additional {Cards:plural:card|cards} and Attacks deal double damage this turn.\nAt the start of your [blue]2nd[/blue] turn, gain [blue]{Power}[/blue] [gold]Weak[/gold] and [blue]{Power}[/blue] [gold]Frail[/gold].",
   "ESTANNANCIENT-NAME_FIVE.flavor": "",
   "ESTANNANCIENT-NAME_FIVE.title": "Name Five",
 
+  "ESTANNANCIENT-NAME_SIX.description": "Maps contain an additional [gold]Shop[/gold] before the final [gold]Rest Site[/gold]. The first purchase each shop is free.",
+  "ESTANNANCIENT-NAME_SIX.flavor": "",
+  "ESTANNANCIENT-NAME_SIX.title": "Name Six",
+
+  "ESTANNANCIENT-NAME_SEVEN.description": "Whenever you play an Attack while you have [gold]Block[/gold], take [blue]{BlockRemoval}[/blue] damage to gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold].",
+  "ESTANNANCIENT-NAME_SEVEN.flavor": "",
+  "ESTANNANCIENT-NAME_SEVEN.title": "Name Seven",
+  
   "ESTANNANCIENT-NAME_EIGHT.description": "Upon pickup, [gold]Enchant[/gold] an Attack or Skill that doesn't [gold]Exhaust[/gold] with [purple]{EnchantmentName}[/purple].",
   "ESTANNANCIENT-NAME_EIGHT.eventDescription": "[gold]Enchant[/gold] an Attack or Skill that doesn't [gold]Exhaust[/gold] with [purple]{EnchantmentName}[/purple].",
   "ESTANNANCIENT-NAME_EIGHT.flavor": "",

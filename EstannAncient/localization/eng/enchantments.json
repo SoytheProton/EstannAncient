@@ -1,5 +1,9 @@
 ﻿{
   "ESTANNANCIENT-EIGHT_ENCHANTMENT.description": "This card has [gold]Retain[/gold]. When played, it returns to your [gold]Hand[/gold] and increases its cost by 1 that turn.",
   "ESTANNANCIENT-EIGHT_ENCHANTMENT.extraCardText": "Return this card to your [gold]Hand[/gold] and increase this card's cost by 1 this turn.",
-  "ESTANNANCIENT-EIGHT_ENCHANTMENT.title": "Eight"
+  "ESTANNANCIENT-EIGHT_ENCHANTMENT.title": "Eight",
+
+  "ESTANNANCIENT-TWO_ENCHANTMENT.description": "This card has [gold]Exhaust[/gold]. When played, draw [blue]{Cards}[/blue] {Cards:plural:card|cards}.",
+  "ESTANNANCIENT-TWO_ENCHANTMENT.extraCardText": "Draw [blue]{Cards}[/blue] {Cards:plural:card|cards}.",
+  "ESTANNANCIENT-TWO_ENCHANTMENT.title": "Two"
 }

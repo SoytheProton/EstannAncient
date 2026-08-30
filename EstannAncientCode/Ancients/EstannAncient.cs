@@ -13,13 +13,14 @@ public class EstannAncient : CustomAncientModel
 
         new(
             MakePool(
-                AncientOption<NameOne>()
-            ),
+                AncientOption<NameOne>(), 
+                AncientOption<NameTwo>()),
             MakePool(
                 AncientOption<NameEight>()
             ),
             MakePool(
-                AncientOption<NameFive>()
+                AncientOption<NameFive>(),
+                AncientOption<NameSeven>()
             ));
 
     public override Color ButtonColor => new(0.05f, 0.05f, 0.15f, 0.8f);
