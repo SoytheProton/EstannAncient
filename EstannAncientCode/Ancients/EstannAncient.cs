@@ -67,7 +67,7 @@ public class EstannAncient : CustomAncientModel
         
         var list = new WeightedList<AncientOption> { AncientOption<NameEight>() };
 
-        if (Owner == null || IsCanonical)
+        /*if (Owner == null || IsCanonical)
         {
             foreach (var tuple in BaseCharacterRelics.Select(kv => kv.Value))
             {
@@ -89,7 +89,7 @@ public class EstannAncient : CustomAncientModel
                 list.Add(AncientOption<Anchor>());
                 list.Add(AncientOption<Anchor>());
             }
-        }
+        }*/
         
         return list;
     }

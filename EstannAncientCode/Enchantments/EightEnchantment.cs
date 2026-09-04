@@ -13,16 +13,16 @@ public class EightEnchantment : EstannAncientEnchantment
         return base.CanEnchant(card) && card.Type is CardType.Attack or CardType.Skill && !card.GetKeywordsWithSources(KeywordSources.Local).Contains(CardKeyword.Exhaust);
     }
     
-    public override CardLocation ModifyCardPlayResultLocation(
+    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(
         CardModel card,
         bool isAutoPlay,
         ResourceInfo resources,
-        CardLocation location)
+        PileType pileType,
+        CardPilePosition position)
     {
-        if (card != Card || location.pileType != PileType.Discard)
-            return location;
-        location.pileType = PileType.Hand;
-        return location;
+        if (card != Card || pileType != PileType.Discard)
+            return (pileType, position);
+        return (PileType.Hand, position);
     }
     
     public override Task OnPlay(PlayerChoiceContext context, CardPlay? cardPlay)

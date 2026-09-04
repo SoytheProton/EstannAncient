@@ -24,9 +24,9 @@ public class NameSeven : EstannAncientRelic
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if(cardPlay.Player != Owner || cardPlay.Card.Type != CardType.Attack || Owner.Creature.Block > 0)
+        if(cardPlay.Card.Owner != Owner || cardPlay.Card.Type != CardType.Attack || Owner.Creature.Block > 0)
             return;
-        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars[BlockRemoval].BaseValue, ValueProp.Unpowered, Owner.Creature, null, null);
+        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars[BlockRemoval].BaseValue, ValueProp.Unpowered, Owner.Creature, null);
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars.Strength.BaseValue, null, null);
     }
 }
