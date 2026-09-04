@@ -42,16 +42,16 @@ public class NameSix : EstannAncientRelic
     {
         var runState = Owner.RunState;
         if (runState.Map == null)
-            return Task.FromResult(Task.CompletedTask);
+            return Task.CompletedTask;
 
         var count = runState.Players.Count(p => p.GetRelic<NameSix>() != null);
         runState.Map = new NameSixMap(count, runState.Map);
         NMapScreen.Instance?.SetMap(runState.Map, runState.Rng.Seed, false);
         Flash();
-        return Task.FromResult(Task.CompletedTask);
+        return Task.CompletedTask;
     }
     
-    public override ActMap ModifyGeneratedMap(IRunState runState, ActMap map, int actIndex)
+    public override ActMap ModifyGeneratedMapLate(IRunState runState, ActMap map, int actIndex)
     {
         var relicCount = runState.Players.Count(player => player.GetRelic<NameSix>() != null);
         if (relicCount <= 0)
@@ -81,7 +81,7 @@ public class NameSix : EstannAncientRelic
         return Task.CompletedTask;
     }
     
-    public override Task AfterRoomEntered(AbstractRoom room)
+    public override Task BeforeRoomEntered(AbstractRoom room)
     {
         if (room is not MerchantRoom)
         {
@@ -95,74 +95,78 @@ public class NameSix : EstannAncientRelic
 }
 
 internal class NameSixMap : ActMap
+{
+    private readonly MapPoint? _secondBoss;
+
+    public NameSixMap(int count, ActMap original)
     {
-        private readonly MapPoint? _secondBoss;
+        var oldRows = original.GetRowCount();
+        var columnCount = original.GetColumnCount();
+        Grid = new MapPoint?[columnCount, oldRows + count];
 
-        public NameSixMap(int count, ActMap original)
+        for (var row = 1; row < oldRows; row++)
         {
-            var oldRows = original.GetRowCount();
-            Grid = new MapPoint?[7, oldRows + count];
-
-            for (var row = 1; row < oldRows; row++)
+            for (var column = 0; column < columnCount; column++)
             {
-                for (var column = 0; column < 7; column++)
+                var point = original.GetPoint(column, row);
+
+                if (point == null)
                 {
-                    var point = original.GetPoint(column, row);
-
-                    if (point == null)
-                    {
-                        continue;
-                    }
-
-                    Grid[column, row] = point;
+                    continue;
                 }
-            }
 
-            StartingMapPoint = original.StartingMapPoint;
-
-            BossMapPoint = original.BossMapPoint;
-            BossMapPoint.coord.row += count;
-
-            _secondBoss = original.SecondBossMapPoint;
-            if (_secondBoss != null)
-            {
-                _secondBoss.coord.row += count;
-            }
-
-            var restSites = BossMapPoint.parents.ToList();
-
-            foreach (var restSite in restSites)
-            {
-                restSite.coord.row += count;
-
-                foreach (var parent in restSite.parents.ToList())
-                {
-                    parent.RemoveChildPoint(restSite);
-
-                    var previous = parent;
-
-                    for (var i = 1; i <= count; i++)
-                    {
-                        var shop = new MapPoint(parent.coord.col, parent.coord.row + i)
-                        {
-                            PointType = MapPointType.Shop,
-                            CanBeModified = false
-                        };
-
-                        Grid[shop.coord.col, shop.coord.row] = shop;
-
-                        previous.AddChildPoint(shop);
-
-                        previous = shop;
-                    }
-
-                    previous.AddChildPoint(restSite);
-                }
+                Grid[column, row] = point;
             }
         }
 
-        public override MapPoint? SecondBossMapPoint => _secondBoss;
-        public sealed override MapPoint BossMapPoint { get; }
-        public override MapPoint StartingMapPoint { get; }
-        protected sealed override MapPoint?[,] Grid { get; }
+        StartingMapPoint = original.StartingMapPoint;
+
+        BossMapPoint = original.BossMapPoint;
+        BossMapPoint.coord.row += count;
+
+        _secondBoss = original.SecondBossMapPoint;
+        if (_secondBoss != null)
+        {
+            _secondBoss.coord.row += count;
+        }
+
+        var restSites = BossMapPoint.parents.ToList();
+
+        foreach (var restSite in restSites)
+        {
+            Grid[restSite.coord.col, restSite.coord.row] = null;
+            restSite.coord.row += count;
+            Grid[restSite.coord.col, restSite.coord.row] = restSite;
+            
+            var parents = restSite.parents.ToList();
+            foreach (var parent in parents)
+            {
+                parent.RemoveChildPoint(restSite);
+
+                var previous = parent;
+
+                for (var i = 0; i < count; i++)
+                {
+                    var shop = new MapPoint(parent.coord.col, parent.coord.row + i + 1)
+                    {
+                        PointType = MapPointType.Shop,
+                        CanBeModified = false
+                    };
+
+                    Grid[shop.coord.col, shop.coord.row] = shop;
+
+                    previous.AddChildPoint(shop);
+
+                    previous = shop;
+                }
+
+                previous.AddChildPoint(restSite);
+            }
+        }
     }
+
+    public override MapPoint? SecondBossMapPoint => _secondBoss;
+    public override MapPoint BossMapPoint { get; }
+    public override MapPoint StartingMapPoint { get; }
+    protected override MapPoint?[,] Grid { get; }
+}
